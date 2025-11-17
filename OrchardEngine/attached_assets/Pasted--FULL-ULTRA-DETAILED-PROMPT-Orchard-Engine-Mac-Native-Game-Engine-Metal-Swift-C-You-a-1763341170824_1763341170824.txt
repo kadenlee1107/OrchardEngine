@@ -1,0 +1,238 @@
+⭐ FULL ULTRA-DETAILED PROMPT: “Orchard Engine” — Mac-Native Game Engine (Metal + Swift + C++)
+
+You are to generate the full source code, architecture, and project structure for a professional-grade macOS-native game engine called “Orchard Engine.”
+This engine must be high-quality, modular, and good enough to be sold commercially.
+No AI systems. No external game engines. Everything must be original.
+
+⸻
+
+🍎 📌 Core Requirements
+
+Build a real game engine, not a demo. It must include:
+
+1. Native macOS + Apple Ecosystem Integration
+	•	Built specifically for macOS ARM64 (M1–M4)
+	•	Zero Rosetta
+	•	Full support for:
+	•	Metal 3 rendering
+	•	MetalFX Upscaling
+	•	Mesh shaders (object shaders)
+	•	Tile-based deferred+forward renderer
+	•	Ray tracing (Metal Acceleration Structures)
+	•	ProMotion adaptive refresh
+	•	HDR / EDR output for XDR displays
+	•	Editor uses SwiftUI + AppKit
+
+2. Dual-Scripting Runtime
+	•	Swift for high-level gameplay scripting
+	•	C++17 (ARM64 optimized) for engine systems
+	•	Swift ↔ C++ bridging for components, ECS, and resource APIs
+	•	Hot-reload support via Swift Playgrounds + LLDB
+
+3. ECS System
+
+A clean, optimized Entity Component System with:
+	•	Archetype-based storage
+	•	Burst-like SIMD acceleration using ARM NEON
+	•	Component hot-reload
+	•	Event bus system
+	•	Scene graph integration with ECS transform system
+
+4. Physics Engine
+
+Custom physics, not Bullet/PhysX:
+	•	Broadphase: SAP or BVH
+	•	Narrowphase: GJK + EPA
+	•	Rigidbody & CharacterController
+	•	Constraints, joints
+	•	Trigger volumes
+	•	Softbody option
+	•	Physics timestep decoupled from render
+
+5. Audio System
+
+Using Apple CoreAudio:
+	•	Ultra low latency audio mixer
+	•	Spatial Audio support
+	•	Convolution reverb
+	•	AudioUnits integration
+	•	Compressed/uncompressed sound banks
+	•	Streaming audio system (for music)
+
+6. Orchard Editor
+
+Full game editor app built with SwiftUI:
+	•	Scene Hierarchy
+	•	Inspector panel
+	•	Transform gizmos
+	•	Material graph editor
+	•	Shader graph (Metal Shading Language)
+	•	Animation timeline
+	•	Prefab system
+	•	Drag/drop .USD, .FBX, .OBJ, .PNG, .EXR, .WAV
+	•	Live preview via MTKView
+	•	Multiple tabs / windows
+	•	Undo/redo stack
+	•	Build/export panel for macOS, iOS, iPadOS, visionOS
+
+7. Renderer
+
+A modern Metal renderer featuring:
+	•	PBR pipeline (GGX, Smith masking/shadowing)
+	•	HDR → tone mapping
+	•	Cascaded shadow maps
+	•	SSAO (optional)
+	•	SSR (optional)
+	•	Volumetric fog
+	•	GPU-driven occlusion culling
+	•	GPU-driven indirect draws
+	•	Clustered/Forward+ lighting
+	•	Light probes + reflection probes
+	•	Ray-traced shadows/reflections optional
+	•	MetalFX upscale pipeline
+
+The renderer must be written in C++ with .metal shader files.
+
+8. File System + Assets
+	•	Custom package format “.orchardpkg”
+	•	Asset database with UUID tracking
+	•	Importers for:
+	•	FBX
+	•	OBJ
+	•	USD
+	•	PNG/JPG
+	•	EXR
+	•	WAV/MP3/FLAC
+	•	Shader compilation pipeline
+	•	Material system with graph → code generation
+	•	Streaming textures + mipmap generation
+
+9. Build Targets
+	•	macOS (primary)
+	•	iOS
+	•	iPadOS
+	•	tvOS
+	•	visionOS
+	•	WebGPU export optional
+	•	Xcode project generation
+
+10. Example Game Template
+
+Engine must ship with:
+	•	First-person controller
+	•	Third-person controller
+	•	Example materials
+	•	Example shaders
+	•	Physics test scene
+	•	Lighting demo scene
+	•	Audio mixing demo
+
+⸻
+
+📁 📌 Folder Structure to Generate
+
+Generate this exact (or improved) folder structure:
+
+OrchardEngine/
+    Engine/
+        Core/
+        ECS/
+        Math/
+        Rendering/
+            Metal/
+                Shaders/
+                RenderGraph/
+        Physics/
+        Audio/
+        Resources/
+        Platform/
+            macOS/
+            iOS/
+        Scripting/
+            SwiftBindings/
+            CPPRuntime/
+        Utils/
+    Editor/
+        App/
+        Panels/
+        SwiftUI/
+        Icons/
+        Serialization/
+        SceneView/
+        Builds/
+    Samples/
+        FirstPersonDemo/
+        ThirdPersonDemo/
+        PhysicsPlayground/
+    Tools/
+        ShaderCompiler/
+        AssetPipeline/
+    Documentation/
+        Architecture/
+        API/
+        Scripting/
+        Rendering/
+
+📌 Deliverables You Must Generate
+
+The AI generator must output:
+
+✔ Full source code
+
+As complete as possible for MVP engine.
+
+✔ All major classes/interfaces
+
+With definitions, skeletons, and detailed comments.
+
+✔ Full rendering pipeline implementation
+
+Including Metal shaders, passes, buffers, resource management, etc.
+
+✔ Orchard Editor code
+
+SwiftUI + MetalKit + scene manipulation tools.
+
+✔ ECS implementation
+
+Archetypes, chunk allocation, fast iteration.
+
+✔ Physics engine implementation
+
+Broadphase, narrowphase, constraints, solver.
+
+✔ Swift + C++ scripting bridges
+
+✔ Documentation
+
+Markdown files explaining:
+	•	Engine internals
+	•	How to write scripts
+	•	How the renderer works
+	•	How the editor loads scenes
+	•	Build + compile instructions
+
+✔ A complete MVP that can compile on macOS
+
+⸻
+
+📌 Coding Guidelines
+	•	No external game engine dependencies
+	•	No AI libraries
+	•	No cloud/online components
+	•	No placeholder pseudo-code — write real code
+	•	Use Metal best practices
+	•	Use C++17 with ARM64 optimizations
+	•	Use Swift 5.9+
+	•	Use modular, clean architecture
+	•	Everything must be well-commented
+	•	Focus on performance and memory layout
+
+⸻
+
+📌 Final Instruction
+
+Begin by generating the ENTIRE engine step by step.
+Start with architecture → file tree → core classes → rendering → editor → physics → audio → samples → docs.
+Do not skip anything.
+Write production-quality code and explanations.
